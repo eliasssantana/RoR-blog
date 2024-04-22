@@ -3,8 +3,8 @@
 <%= render @comment %>
 
 <div>
-  <%= link_to "Editar comentário", edit_post_comment_path(@post, @comment) %> |
-  <%= link_to "Voltar aos comentários", post_comments_path(@post) %>
+  <%= link_to "Editar comentário", edit_post_comment_path(@post, @comment), class: "no-underline"%> |
+  <%= link_to "Voltar aos comentários ->", post_comments_path(@post), class: "no-underline" %>
 
-  <%= button_to "Excluir comentário", post_comment_path(@post, @comment), method: :delete %>
+  <%= button_to "Excluir comentário", post_comment_path(@post, @comment), method: :delete, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mt-2"%>
 </div>
