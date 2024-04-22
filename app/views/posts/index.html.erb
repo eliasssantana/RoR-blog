@@ -1,0 +1,35 @@
+
+<nav class="bg-gray-800 sticky top-0 left-0 right-0">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="flex items-center space-x-4 justify-end w-full text-white font-bold">
+        <% if user_signed_in? %>
+          <div class="flex items-center space-x-4">
+            <%= link_to "Perfil", edit_user_registration_path, class: "text-white font-bold no-underline"%> </br>
+            <%= link_to "Novo post", new_post_path, class: "text-white font-bold no-underline"%>
+            <%= button_to "Sair", destroy_user_session_path, method: :delete%> </br>
+          </div>
+        <% else %>
+          <div class="flex item-center space-x-4 no-underline">
+            <%= button_to "Entrar", new_user_session_path %> </br>
+            <%= link_to "Cadastre-se", new_user_registration_path, class: "text-white font-bold no-underline" %>
+          </div>      
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div>
+  <p style="color: green"><%= notice %></p>
+
+  <h1 class="text-3xl font-bold mb-6">Mainô blog</h1>
+
+  <div id="posts">
+      <%= render "posts"%>
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Comentários</h1>
+
+<div id="comments">
+  <% @comments.each do |comment| %>
+    <%= render comment %>
+    <p>
+      <%= link_to "Mostrar comentário", post_comment_path(@post, comment), class: "no-underline"%>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Voltar ->", @post, class: "no-underline"%>

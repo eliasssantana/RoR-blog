@@ -1,0 +1,25 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> Não foi possível salvar o post:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-2">
+    <%= form.text_field :title, placeholder: "Título"%>
+  </div>
+
+  <div>
+    <%= form.text_area :content, placeholder: "Conteúdo"%>
+  </div>
+
+  <div>
+    <%= form.button "Postar", type: "submit", class: "text-white font-bold bg-cyan-800 py-2 px-4 rounded hover:bg-cyan-600"%>
+  </div>
+<% end %>

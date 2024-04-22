@@ -1,0 +1,30 @@
+<%= form_with(model: [ @post, @post.comments.build ], url: post_comments_path(@post), local: true) do |form| %>
+
+  <% if comment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(form.object.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+        <% comment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+  <%= form.label :anonymous, class: "inline-flex items-center" do %>
+    <%= form.check_box :anonymous %>
+    <span class="ml-2">Comentar anonimamente</span>
+  <% end %>
+</div>
+
+
+  <div>
+    <%= form.submit "Comentar", class:"bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>

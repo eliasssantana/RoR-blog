@@ -1,0 +1,35 @@
+<div id="<%= dom_id post %>" class="mb-8">
+  <h1>
+    <%= post.title %>
+  </h1>
+
+  <p>
+    <%= post.content %>
+  </p>
+
+  <p> 
+    <strong>Por:</strong>
+    <% if post.user.name? %>
+      <%= post.user.name %>
+    <% else %>
+      Anônimo
+    <% end %>
+  </p>
+
+  <section>
+
+    <div>
+          <h3><%= post.comments.count %> comentários</p>
+          <%= render post.comments %>
+    </div>
+    <div>
+
+      <h3>Comentar</h3>
+
+      <%= render 'comments/create_form', comment: @post.comments.new %>
+
+    </div>
+
+
+  </section>
+</div>

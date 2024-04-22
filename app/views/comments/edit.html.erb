@@ -1,0 +1,10 @@
+<h1>Editar comentário</h1>
+
+<%= render "update_form", comment: @comment %>
+
+<br>
+
+<div>
+  <%= link_to "Mostrar comentário", edit_post_comment_path(@comment) %> |
+  <%= link_to "Voltar aos comentários", post_comments_path %>
+</div>

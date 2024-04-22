@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mainô Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <% stylesheet_path = Pagy.root.join('stylesheets', 'pagy.tailwind.css') %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+  </head>
+
+  <body class="prose mx-auto">
+    <main class="container mt-25 relative">
+    <%= yield %>
+    </main>
+  </body>
+</html>
