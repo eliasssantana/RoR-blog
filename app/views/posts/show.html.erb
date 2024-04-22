@@ -2,7 +2,10 @@
 
 <%= render @post %>
 
-<%= button_to "Deletar post", @post, method: :delete, data: { confirm: "Tem certeza?" }, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-2" %>
+<% if user_signed_in? %>
+  <%= button_to "Deletar post", @post, method: :delete, data: { confirm: "Tem certeza?" }, class: "bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded mb-2" %>
+<% end %>
+
 
 <div>
   <%= link_to "Editar post", edit_post_path(@post), class: "no-underline" %> |
